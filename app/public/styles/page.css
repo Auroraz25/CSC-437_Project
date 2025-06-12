@@ -1,0 +1,137 @@
+/* Main styles for all pages - Using design tokens */
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  background-color: var(--color-background-page);
+  color: var(--color-text);
+}
+
+header {
+  background-color: var(--color-background-header);
+  color: var(--color-text-inverted);
+  border-radius: var(--border-radius-md);
+}
+
+main {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+footer {
+  background-color: var(--color-background-footer);
+  color: var(--color-text-inverted);
+  border-radius: var(--border-radius-md);
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: var(--color-text-heading);
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-xxlarge);
+  font-weight: var(--font-weight-bold);
+}
+
+h2 {
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-semibold);
+}
+
+h3 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-semibold);
+}
+
+header h1 {
+  color: var(--color-text-inverted);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* Navigation */
+nav a {
+  color: var(--color-link-inverted);
+}
+
+nav a:hover {
+  color: var(--color-accent-light);
+}
+
+/* Lists */
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Special elements */
+article {
+  border-left: var(--border-width-thick) solid var(--color-border-accent);
+  padding-left: var(--spacing-md);
+}
+
+strong {
+  color: var(--color-text-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+p {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Icon styles */
+svg.icon {
+  display: inline;
+  height: var(--icon-size);
+  width: var(--icon-size);
+  vertical-align: var(--icon-vertical-align);
+  fill: currentColor;
+  margin-right: var(--icon-margin-right);
+}
+
+/* Category icons */
+.category-icon svg.icon {
+  fill: var(--color-accent);
+}
+
+/* Author icons */
+.author-icon svg.icon {
+  fill: var(--color-text-heading);
+}
+
+/* Status icons */
+.status-icon svg.icon {
+  fill: var(--color-accent-dark);
+}
+
+/* Button styles */
+button {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Input styles */
+input {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+}

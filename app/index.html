@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Collection</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+</head>
+
+<body>
+    <!-- Auth check script -->
+    <script>
+        (function() {
+            const token = localStorage.getItem("auth:token");
+            
+            if (!token) {
+                window.location.href = "/login.html";
+                return;
+        
+            try {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                const now = Date.now() / 1000;
+                
+                if (payload.exp && payload.exp < now) {
+                    localStorage.removeItem("auth:token");
+                    window.location.href = "/login.html";
+                    return;
+                }
+            } catch (error) {
+                console.error("Invalid token:", error);
+                localStorage.removeItem("auth:token");
+                window.location.href = "/login.html";
+                return;
+            }
+        })();
+    </script>
+
+    <mu-history provides="bookshelf:history">
+        <mu-auth provides="bookshelf:auth">
+            <mu-store provides="bookshelf:model">
+                <article class="page">
+                    <bookshelf-header></bookshelf-header>
+                    
+                    <mu-switch></mu-switch>
+                </article>
+            </mu-store>
+        </mu-auth>
+    </mu-history>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

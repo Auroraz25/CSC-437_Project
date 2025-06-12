@@ -1,0 +1,24 @@
+{
+  "name": "bookshelf-app",
+  "version": "1.0.0",
+  "description": "A book collection management application built with MVU architecture",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@calpoly/mustang": "^1.0.15",
+    "lit": "^3.3.0",
+    "server": "file:../server"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0"
+  }
+}

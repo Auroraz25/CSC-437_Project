@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sign In - Bookshelf</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script type="module">
+    import { define, Auth } from "@calpoly/mustang";
+    import { LoginFormElement } from "/src/auth/login-form.js";
+
+    define({
+      "mu-auth": Auth.Provider,
+      "login-form": LoginFormElement
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 15px;
+    }
+    label span {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    p {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .error {
+      color: #f44336;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body class="page">
+  <mu-auth>
+    <h2>Sign In to Your Account</h2>
+    <main class="card">
+      <login-form api="/auth/login" redirect="/app">
+        <label>
+          <span>Username:</span>
+          <input name="username" autocomplete="username" />
+        </label>
+        <label>
+          <span>Password:</span>
+          <input type="password" name="password" autocomplete="current-password" />
+        </label>
+      </login-form>
+    </main>
+    <p>Don't have an account? <a href="newuser.html">Sign up</a></p>
+  </mu-auth>
+</body>
+</html>
