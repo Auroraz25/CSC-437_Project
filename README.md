@@ -1,9 +1,6 @@
-# CSC-437_Project
-
-# App + Server Deployment
+# CSC 437 Project — Deployment Report
 
 Author: Aurora Zhang (jzhan118)  
-Repo: https://github.com/Auroraz25/CSC-437_Project
 
 ---
 
@@ -12,52 +9,56 @@ Repo: https://github.com/Auroraz25/CSC-437_Project
 This project consists of:
 
 - `server/`: Node.js backend server
-- `app/`: React frontend application
-
-The project is a full-stack web application consisting of both backend and frontend components.  
-It is designed to be deployed on the CSSE-hosted VPS using the deployment process demonstrated in Lab 6.
+- `app/`: React frontend application (using Vite)
 
 ---
 
-## Deployment Status
+## Deployment Summary
 
-At this time, I am unable to deploy the app to the server because I have forgotten my password for `jzhan118@host.csse.dev`.
+The project was deployed to the CSSE VPS following the **Lab 6 style** deployment process, with two `nohup` processes:
 
-I have already requested a password reset. Once I regain access, I will deploy the app following the standard Lab 6 deployment procedure, as described below.
+- `server/`: `nohup npm run start &`
+- `app/`: `nohup npm run dev &`
 
 ---
 
-## Deployment Process (based on Lab 6)
+## Deployment Steps
 
-Once my password issue is resolved, I will deploy the app using the following steps:
-
-### 1️⃣ SSH into the server
+1️⃣ Connected to VPS:
 
 ```bash
 ssh jzhan118@jzhan118-host.csse.dev
 
+2️⃣ Installed Node.js v20:
 sudo apt update
 curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
 sudo apt-get install nodejs -y
-node -v
+node -v  # v20.19.2
 
+3️⃣ Cloned project repo:
 git clone https://github.com/Auroraz25/CSC-437_Project.git
 cd CSC-437_Project
 
+4️⃣ Installed dependencies:
 cd server
 npm install
 
 cd ../app
 npm install
 
+5️⃣ Deployed servers:
 # Start backend server
-cd server
+cd ~/CSC-437_Project/server
 nohup npm run start &
 
-# Start frontend app
-cd ../app
+# Start frontend app (with --host)
+cd ~/CSC-437_Project/app
 nohup npm run dev &
 
-# Note: The deployment process is identical to Lab 6, with the exception that both the server and the app are started as background processes using separate nohup commands. Once I regain access to my UNIX account and complete the deployment, I will update this README.
+→ Vite frontend running at:
+Network: http://10.0.1.73:5174/
+
+
+
 
