@@ -1,4 +1,4 @@
-// app/src/main.ts - 完整的更新版本
+// app/src/main.ts
 import {
   Auth,
   define,

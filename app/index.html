@@ -18,29 +18,33 @@
     <!-- Auth check script -->
     <script>
         (function() {
-            const token = localStorage.getItem("auth:token");
             
-            if (!token) {
-                window.location.href = "/login.html";
-                return;
-        
             try {
-                const payload = JSON.parse(atob(token.split('.')[1]));
-                const now = Date.now() / 1000;
+                const token = localStorage.getItem("auth:token");
                 
-                if (payload.exp && payload.exp < now) {
-                    localStorage.removeItem("auth:token");
-                    window.location.href = "/login.html";
+                if (!token) {
+                    window.location.replace("/login.html");
                     return;
                 }
-            } catch (error) {
-                console.error("Invalid token:", error);
-                localStorage.removeItem("auth:token");
-                window.location.href = "/login.html";
-                return;
+                
+                try {
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    const now = Date.now() / 1000;
+                    
+                    
+                    if (payload.exp && payload.exp < now) {
+                        return;
+                    }
+                    
+                } catch (error) {
+                    return;
+                }
+            } catch (globalError) {
+                window.location.replace("/login.html");
             }
         })();
     </script>
+
 
     <mu-history provides="bookshelf:history">
         <mu-auth provides="bookshelf:auth">

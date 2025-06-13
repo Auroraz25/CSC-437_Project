@@ -11,7 +11,7 @@ import users from "./routes/users";
 import auth, { authenticateUser } from "./routes/auth";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const staticDir = process.env.STATIC || "public";
 
 connect("book_collection");
