@@ -11,6 +11,11 @@ This project consists of:
 - `server/`: Node.js backend server
 - `app/`: React frontend application (using Vite)
 
+
+This project is a simple **Bookshelf App** where users can add, view, and manage books.  
+The app consists of a React frontend and a Node.js backend server, with API endpoints to manage the book data.
+
+
 ---
 
 ## Deployment Summary
