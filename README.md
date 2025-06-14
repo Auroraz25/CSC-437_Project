@@ -64,6 +64,7 @@ nohup npm run dev &
 → Vite frontend running at:
 Network: http://10.0.1.73:5174/
 
-
+# Web Address:
+https://jzhan118.csse.dev/app
 
 
